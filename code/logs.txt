@@ -1,0 +1,13 @@
+# Which programming languages do you use to write code for Programmable Logic Controllers?
+We forgot to add an option No programming experience to this question.
+Some respondents used the Other field to justify that they have no programming experience in PLCs (e.g. Other - None, Other - No experience, Other - I have no experience).
+To facilitate the analysis of the data, I changed the answers of these respondents to a single standard: No experience.
+
+1 - Correct structure, symbols and labels
+2 - Correct structure and symbols, wrong labels
+3 - Correct structure and labels, wrong symbols
+4 - Correct structure, wrong labels and symbols
+5 - Wrong structure, symbols and labels
+6 - Wrong structure, symbols and labels
+7 - Wrong structure, symbols and labels
+8 - Wrong structure, symbols and labels

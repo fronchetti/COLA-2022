@@ -1,6 +1,7 @@
 library(readr)
 library(ggplot2)
 library(tidyr)
+install.packages("splitstackshape")
 library(splitstackshape)
 
 survey <- read_csv("Documents/Ladder Logic (Survey)/data/survey/Survey - Can you understand Ladder Logic (Complete) - Responses.csv")

@@ -1,0 +1,553 @@
+> library(effsize)
+> data <- read.csv("../data/survey/Performances.csv", fileEncoding="UTF-8-BOM")
+> # Questions asking the respondent to read a diagram x to write a diagram
+> summary(data$ReadPercentage)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.00   80.00  100.00   87.77  100.00  100.00 
+> summary(data$WritePercentage)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.00   80.00   80.00   81.94  100.00  100.00 
+> wilcox.test(data$ReadPercentage, data$WritePercentage)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$ReadPercentage and data$WritePercentage
+W = 17668, p-value = 0.006181
+alternative hypothesis: true location shift is not equal to 0
+
+> cliff.delta(data$ReadPercentage, data$WritePercentage, return.dm=TRUE)  
+
+Cliff's Delta
+
+delta estimate: 0.1538286 (small)
+95 percent confidence interval:
+     lower      upper 
+0.04365028 0.26030997 
+
+> # Questions where the question and/or answer is an one-rung diagram x a two-rungs diagram
+> summary(data$OneRungPercentage)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.00   80.00  100.00   87.31  100.00  100.00 
+> summary(data$TwoRungsPercentage)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    0.0    80.0    80.0    82.4   100.0   100.0 
+> wilcox.test(data$OneRungPercentage, data$TwoRungsPercentage)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$OneRungPercentage and data$TwoRungsPercentage
+W = 17122, p-value = 0.03556
+alternative hypothesis: true location shift is not equal to 0
+
+> cliff.delta(data$OneRungPercentage, data$TwoRungsPercentage, return.dm=TRUE)  
+
+Cliff's Delta
+
+delta estimate: 0.1181388 (negligible)
+95 percent confidence interval:
+      lower       upper 
+0.007722577 0.225708870 
+
+> # Questions containing multiple types of inputs x single type of input
+> summary(data$MultipleTypesPercentage)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.00   80.00   80.00   80.91  100.00  100.00 
+> summary(data$SingleTypePercentage)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    0.0    80.0   100.0    88.8   100.0   100.0 
+> wilcox.test(data$MultipleTypesPercentage, data$SingleTypePercentage)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$MultipleTypesPercentage and data$SingleTypePercentage
+W = 12215, p-value = 0.0003043
+alternative hypothesis: true location shift is not equal to 0
+
+> cliff.delta(data$MultipleTypesPercentage, data$SingleTypePercentage, return.dm=TRUE)  
+
+Cliff's Delta
+
+delta estimate: -0.2022857 (small)
+95 percent confidence interval:
+      lower       upper 
+-0.30682884 -0.09291957 
+
+> # Questions containing closed contacts x not containing closed contacts
+> summary(data$ConstainsClosedRungPercentage)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.00   71.00   86.00   81.32  100.00  100.00 
+> summary(data$DoesNotContainClosedRungPercentage)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   0.00  100.00  100.00   93.19  100.00  100.00 
+> wilcox.test(data$ConstainsClosedRungPercentage, data$DoesNotContainClosedRungPercentage)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$ConstainsClosedRungPercentage and data$DoesNotContainClosedRungPercentage
+W = 9072.5, p-value = 1.805e-13
+alternative hypothesis: true location shift is not equal to 0
+
+> cliff.delta(data$ConstainsClosedRungPercentage, data$DoesNotContainClosedRungPercentage, return.dm=TRUE)  
+
+Cliff's Delta
+
+delta estimate: -0.4075102 (medium)
+95 percent confidence interval:
+     lower      upper 
+-0.5053240 -0.2993575 
+
+> # No programming experience x +5 years of programming experience
+> summary(data$ProgExpNoExperience)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  0.000   6.250   8.000   7.136   9.000  10.000     153 
+> summary(data$ProgExpPlus5Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+    2.0     8.0     9.0     8.7    10.0    10.0      75 
+> wilcox.test(data$ProgExpNoExperience, data$ProgExpPlus5Years)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$ProgExpNoExperience and data$ProgExpPlus5Years
+W = 633, p-value = 0.001238
+alternative hypothesis: true location shift is not equal to 0
+
+> cliff.delta(data$ProgExpNoExperience, data$ProgExpPlus5Years, return.dm=TRUE) 
+
+Cliff's Delta
+
+delta estimate: -0.4245455 (medium)
+95 percent confidence interval:
+     lower      upper 
+-0.6290960 -0.1650068 
+
+> # No programming experience x 3 to 5 years of programming experience
+> summary(data$ProgExpNoExperience)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  0.000   6.250   8.000   7.136   9.000  10.000     153 
+> summary(data$ProgExp3To5Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  3.000   8.000   9.000   8.455  10.000  10.000     153 
+> wilcox.test(data$ProgExpNoExperience, data$ProgExp3To5Years)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$ProgExpNoExperience and data$ProgExp3To5Years
+W = 160.5, p-value = 0.05206
+alternative hypothesis: true location shift is not equal to 0
+
+Warning message:
+In wilcox.test.default(data$ProgExpNoExperience, data$ProgExp3To5Years) :
+  cannot compute exact p-value with ties
+> cliff.delta(data$ProgExpNoExperience, data$ProgExp3To5Years, return.dm=TRUE)
+
+Cliff's Delta
+
+delta estimate: -0.3367769 (medium)
+95 percent confidence interval:
+       lower        upper 
+-0.607919602  0.004709561 
+
+> # No programming experience x 1 to 2 years of programming experience
+> summary(data$ProgExpNoExperience)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  0.000   6.250   8.000   7.136   9.000  10.000     153 
+> summary(data$ProgExp1To2Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  7.000   8.000   9.000   8.857  10.000  10.000     161 
+> wilcox.test(data$ProgExpNoExperience, data$ProgExp1To2Years)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$ProgExpNoExperience and data$ProgExp1To2Years
+W = 86.5, p-value = 0.02612
+alternative hypothesis: true location shift is not equal to 0
+
+Warning message:
+In wilcox.test.default(data$ProgExpNoExperience, data$ProgExp1To2Years) :
+  cannot compute exact p-value with ties
+> cliff.delta(data$ProgExpNoExperience, data$ProgExp1To2Years, return.dm=TRUE) 
+
+Cliff's Delta
+
+delta estimate: -0.4383117 (medium)
+95 percent confidence interval:
+      lower       upper 
+-0.70374883 -0.06549496 
+
+> # No programming experience x < 1 year of programming experience
+> summary(data$ProgExpNoExperience)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  0.000   6.250   8.000   7.136   9.000  10.000     153 
+> summary(data$ProgExpLess1Year)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  3.000   8.500   9.000   8.667  10.000  10.000     160 
+> wilcox.test(data$ProgExpNoExperience, data$ProgExpLess1Year)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$ProgExpNoExperience and data$ProgExpLess1Year
+W = 91, p-value = 0.01981
+alternative hypothesis: true location shift is not equal to 0
+
+Warning message:
+In wilcox.test.default(data$ProgExpNoExperience, data$ProgExpLess1Year) :
+  cannot compute exact p-value with ties
+> cliff.delta(data$ProgExpNoExperience, data$ProgExpLess1Year, return.dm=TRUE)
+
+Cliff's Delta
+
+delta estimate: -0.4484848 (medium)
+95 percent confidence interval:
+      lower       upper 
+-0.71748195 -0.06308413 
+
+> # 1 to 2 years of programming experience x +5 years of programming experience
+> summary(data$ProgExp1To2Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  7.000   8.000   9.000   8.857  10.000  10.000     161 
+> summary(data$ProgExpPlus5Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+    2.0     8.0     9.0     8.7    10.0    10.0      75 
+> wilcox.test(data$ProgExp1To2Years, data$ProgExpPlus5Years)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$ProgExp1To2Years and data$ProgExpPlus5Years
+W = 698.5, p-value = 0.9928
+alternative hypothesis: true location shift is not equal to 0
+
+> cliff.delta(data$ProgExp1To2Years, data$ProgExpPlus5Years, return.dm=TRUE)
+
+Cliff's Delta
+
+delta estimate: -0.002142857 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.3130439  0.3091729 
+
+> # 1 to 2 years of programming experience x 3 to 5 years of programming experience
+> summary(data$ProgExp1To2Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  7.000   8.000   9.000   8.857  10.000  10.000     161 
+> summary(data$ProgExp3To5Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  3.000   8.000   9.000   8.455  10.000  10.000     153 
+> wilcox.test(data$ProgExp1To2Years, data$ProgExp3To5Years)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$ProgExp1To2Years and data$ProgExp3To5Years
+W = 168.5, p-value = 0.638
+alternative hypothesis: true location shift is not equal to 0
+
+Warning message:
+In wilcox.test.default(data$ProgExp1To2Years, data$ProgExp3To5Years) :
+  cannot compute exact p-value with ties
+> cliff.delta(data$ProgExp1To2Years, data$ProgExp3To5Years, return.dm=TRUE)
+
+Cliff's Delta
+
+delta estimate: 0.09415584 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.2788050  0.4424371 
+
+> # 3 to 5 years of programming experience x 5+ years of programming experience
+> summary(data$ProgExp3To5Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  3.000   8.000   9.000   8.455  10.000  10.000     153 
+> summary(data$ProgExpPlus5Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+    2.0     8.0     9.0     8.7    10.0    10.0      75 
+> wilcox.test(data$ProgExp3To5Years, data$ProgExpPlus5Years)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$ProgExp3To5Years and data$ProgExpPlus5Years
+W = 1002.5, p-value = 0.4997
+alternative hypothesis: true location shift is not equal to 0
+
+> cliff.delta(data$ProgExp3To5Years, data$ProgExpPlus5Years, return.dm=TRUE)
+
+Cliff's Delta
+
+delta estimate: -0.08863636 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.3487496  0.1841552 
+
+> # Less 1 year of programming experience x 5+ years of programming experience
+> summary(data$ProgExpLess1Year)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  3.000   8.500   9.000   8.667  10.000  10.000     160 
+> summary(data$ProgExpPlus5Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+    2.0     8.0     9.0     8.7    10.0    10.0      75 
+> wilcox.test(data$ProgExpLess1Year, data$ProgExpPlus5Years)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$ProgExpLess1Year and data$ProgExpPlus5Years
+W = 795, p-value = 0.6982
+alternative hypothesis: true location shift is not equal to 0
+
+> cliff.delta(data$ProgExpLess1Year, data$ProgExpPlus5Years, return.dm=TRUE)
+
+Cliff's Delta
+
+delta estimate: 0.06 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.2520733  0.3607692 
+
+> # Less 1 year of programming experience x 3 to 5 years of programming experience
+> summary(data$ProgExpLess1Year)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  3.000   8.500   9.000   8.667  10.000  10.000     160 
+> summary(data$ProgExpPlus5Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+    2.0     8.0     9.0     8.7    10.0    10.0      75 
+> wilcox.test(data$ProgExpLess1Year, data$ProgExpPlus5Years)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$ProgExpLess1Year and data$ProgExpPlus5Years
+W = 795, p-value = 0.6982
+alternative hypothesis: true location shift is not equal to 0
+
+> cliff.delta(data$ProgExpLess1Year, data$ProgExpPlus5Years, return.dm=TRUE)
+
+Cliff's Delta
+
+delta estimate: 0.06 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.2520733  0.3607692 
+
+> # No PLC experience x +5 years of PLC experience
+> summary(data$PLCExpNoExperience)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  0.000   7.000   9.000   7.786   9.000  10.000     133 
+> summary(data$PLCExpPlus5Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   6.00    8.50    9.00    8.97   10.00   10.00     108 
+> wilcox.test(data$PLCExpNoExperience, data$PLCExpPlus5Years)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$PLCExpNoExperience and data$PLCExpPlus5Years
+W = 975.5, p-value = 0.005132
+alternative hypothesis: true location shift is not equal to 0
+
+> cliff.delta(data$PLCExpNoExperience, data$PLCExpPlus5Years, return.dm=TRUE) 
+
+Cliff's Delta
+
+delta estimate: -0.3066809 (small)
+95 percent confidence interval:
+      lower       upper 
+-0.49691980 -0.08831683 
+
+> # No PLC experience x 3 to 5 years of PLC experience
+> summary(data$PLCExpNoExperience)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  0.000   7.000   9.000   7.786   9.000  10.000     133 
+> summary(data$PLCExp3To5Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  3.000   8.000   9.000   8.045   9.000  10.000     153 
+> wilcox.test(data$PLCExpNoExperience, data$PLCExp3To5Years)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$PLCExpNoExperience and data$PLCExp3To5Years
+W = 448, p-value = 0.8441
+alternative hypothesis: true location shift is not equal to 0
+
+Warning message:
+In wilcox.test.default(data$PLCExpNoExperience, data$PLCExp3To5Years) :
+  cannot compute exact p-value with ties
+> cliff.delta(data$PLCExpNoExperience, data$PLCExp3To5Years, return.dm=TRUE)
+
+Cliff's Delta
+
+delta estimate: -0.03030303 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.3093995  0.2536001 
+
+> # No PLC experience x 1 to 2 years of PLC experience
+> summary(data$PLCExpNoExperience)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  0.000   7.000   9.000   7.786   9.000  10.000     133 
+> summary(data$PLCExp1To2Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  7.000   8.250   9.500   9.136  10.000  10.000     153 
+> wilcox.test(data$PLCExpNoExperience, data$PLCExp1To2Years)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$PLCExpNoExperience and data$PLCExp1To2Years
+W = 287.5, p-value = 0.01113
+alternative hypothesis: true location shift is not equal to 0
+
+Warning message:
+In wilcox.test.default(data$PLCExpNoExperience, data$PLCExp1To2Years) :
+  cannot compute exact p-value with ties
+> cliff.delta(data$PLCExpNoExperience, data$PLCExp1To2Years, return.dm=TRUE) 
+
+Cliff's Delta
+
+delta estimate: -0.3777056 (medium)
+95 percent confidence interval:
+      lower       upper 
+-0.60535289 -0.09293911 
+
+> # No PLC experience x < 1 year of PLC experience
+> summary(data$PLCExpNoExperience)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  0.000   7.000   9.000   7.786   9.000  10.000     133 
+> summary(data$PLCExpLess1Year)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   3.00    8.00    9.00    8.45   10.00   10.00     155 
+> wilcox.test(data$PLCExpNoExperience, data$PLCExpLess1Year)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$PLCExpNoExperience and data$PLCExpLess1Year
+W = 357, p-value = 0.3328
+alternative hypothesis: true location shift is not equal to 0
+
+Warning message:
+In wilcox.test.default(data$PLCExpNoExperience, data$PLCExpLess1Year) :
+  cannot compute exact p-value with ties
+> cliff.delta(data$PLCExpNoExperience, data$PLCExpLess1Year, return.dm=TRUE)
+
+Cliff's Delta
+
+delta estimate: -0.15 (small)
+95 percent confidence interval:
+     lower      upper 
+-0.4266280  0.1522922 
+
+> # 1 to 2 years of PLC experience x +5 years of PLC experience
+> summary(data$PLCExp1To2Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  7.000   8.250   9.500   9.136  10.000  10.000     153 
+> summary(data$PLCExpPlus5Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   6.00    8.50    9.00    8.97   10.00   10.00     108 
+> wilcox.test(data$PLCExp1To2Years, data$PLCExpPlus5Years)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$PLCExp1To2Years and data$PLCExpPlus5Years
+W = 807, p-value = 0.4839
+alternative hypothesis: true location shift is not equal to 0
+
+> cliff.delta(data$PLCExp1To2Years, data$PLCExpPlus5Years, return.dm=TRUE)
+
+Cliff's Delta
+
+delta estimate: 0.09497965 (negligible)
+95 percent confidence interval:
+     lower      upper 
+-0.1794014  0.3556505 
+
+> # 1 to 2 years of PLC experience x 3 to 5 years of PLC experience
+> summary(data$PLCExp1To2Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  7.000   8.250   9.500   9.136  10.000  10.000     153 
+> summary(data$PLCExp3To5Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  3.000   8.000   9.000   8.045   9.000  10.000     153 
+> wilcox.test(data$PLCExp1To2Years, data$PLCExp3To5Years)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$PLCExp1To2Years and data$PLCExp3To5Years
+W = 328, p-value = 0.03698
+alternative hypothesis: true location shift is not equal to 0
+
+Warning message:
+In wilcox.test.default(data$PLCExp1To2Years, data$PLCExp3To5Years) :
+  cannot compute exact p-value with ties
+> cliff.delta(data$PLCExp1To2Years, data$PLCExp3To5Years, return.dm=TRUE)
+
+Cliff's Delta
+
+delta estimate: 0.3553719 (medium)
+95 percent confidence interval:
+     lower      upper 
+0.01702076 0.62069521 
+
+> # 3 to 5 years of PLC experience x 5+ years of PLC experience
+> summary(data$PLCExp3To5Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  3.000   8.000   9.000   8.045   9.000  10.000     153 
+> summary(data$PLCExpPlus5Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   6.00    8.50    9.00    8.97   10.00   10.00     108 
+> wilcox.test(data$PLCExp3To5Years, data$PLCExpPlus5Years)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$PLCExp3To5Years and data$PLCExpPlus5Years
+W = 526.5, p-value = 0.03627
+alternative hypothesis: true location shift is not equal to 0
+
+> cliff.delta(data$PLCExp3To5Years, data$PLCExpPlus5Years, return.dm=TRUE)
+
+Cliff's Delta
+
+delta estimate: -0.2856174 (small)
+95 percent confidence interval:
+      lower       upper 
+-0.52006346 -0.01114841 
+
+> # Less 1 year of PLC experience x 5+ years of PLC experience
+> summary(data$PLCExpLess1Year)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   3.00    8.00    9.00    8.45   10.00   10.00     155 
+> summary(data$PLCExpPlus5Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   6.00    8.50    9.00    8.97   10.00   10.00     108 
+> wilcox.test(data$PLCExpLess1Year, data$PLCExpPlus5Years)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$PLCExpLess1Year and data$PLCExpPlus5Years
+W = 565, p-value = 0.2679
+alternative hypothesis: true location shift is not equal to 0
+
+> cliff.delta(data$PLCExpLess1Year, data$PLCExpPlus5Years, return.dm=TRUE)
+
+Cliff's Delta
+
+delta estimate: -0.1567164 (small)
+95 percent confidence interval:
+     lower      upper 
+-0.4260449  0.1381285 
+
+> # Less 1 year of PLC experience x 3 to 5 years of PLC experience
+> summary(data$PLCExpLess1Year)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   3.00    8.00    9.00    8.45   10.00   10.00     155 
+> summary(data$PLCExpPlus5Years)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   6.00    8.50    9.00    8.97   10.00   10.00     108 
+> wilcox.test(data$PLCExpLess1Year, data$PLCExpPlus5Years)
+
+	Wilcoxon rank sum test with continuity correction
+
+data:  data$PLCExpLess1Year and data$PLCExpPlus5Years
+W = 565, p-value = 0.2679
+alternative hypothesis: true location shift is not equal to 0
+
+> cliff.delta(data$PLCExpLess1Year, data$PLCExpPlus5Years, return.dm=TRUE)
+
+Cliff's Delta
+
+delta estimate: -0.1567164 (small)
+95 percent confidence interval:
+     lower      upper 
+-0.4260449  0.1381285 

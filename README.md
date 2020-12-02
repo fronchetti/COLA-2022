@@ -9,6 +9,6 @@ Our package is divided in two main folders:
   * tutorial: During the execution of our survey, we presented to the respondents a short tutorial about ladder logic and programmable logic controllers. The tutorial folder contains all the files related to this presentation.
 * code: Inside the code folder you will find the script files used to analyze the performance of our respondents after the survey.
 
-If you have any questions, do not hesitate to contact us. You can send an email to one of the authors below: <br>
+If you have any questions, do not hesitate to contact us. You can send an email to one of the authors below:   <br>
 Felipe Fronchetti - fronchettl@vcu.edu <br>
 David Shepherd - shepherdd@vcu.edu

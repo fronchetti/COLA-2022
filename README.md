@@ -10,7 +10,7 @@ The figures from the paper in the form of .pptx (source) and .pdf (rendered).
 ### survey
 A .pdf copy of the survey as well as a separate .pdf of the survey diagrams and an editable version of the survey diagrams.
 ### tutorial
-The files used to make the video tutorial, including the script, .pdf and .pptx slides, and editable version of the used diagrams. Please see YouTube to watch the video tutorial itself.  
+The files used to make the video tutorial, including the script, .pdf and .pptx slides, and editable version of the used diagrams. Please see YouTube [to watch the video tutorial](https://www.youtube.com/watch?v=V3xTa2sw0bk).  
 
 ---
 If you have any questions, do not hesitate to contact us. You can send an email to one of the authors below:   <br>

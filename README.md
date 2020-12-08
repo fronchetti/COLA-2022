@@ -1,15 +1,15 @@
 # Replication Package
 ## Investigating Programming Language Impact on Industrial End-User Programmer Productivity 
 Our package is divided these main folders:
-### code
+### [code](https://github.com/vcuse/industrial/tree/master/code)
 The R scripts we used to analyze the raw survey data. 
-### data
+### [data](https://github.com/vcuse/industrial/tree/master/data)
 The raw survey data in the form of .csv and .xls files.
-### figures
+### [figures](https://github.com/vcuse/industrial/tree/master/figures)
 The figures from the paper in the form of .pptx (source) and .pdf (rendered). 
-### survey
+### [survey](https://github.com/vcuse/industrial/tree/master/survey)
 A .pdf copy of the survey as well as a separate .pdf of the survey diagrams and an editable version of the survey diagrams.
-### tutorial
+### [tutorial](https://github.com/vcuse/industrial/tree/master/tutorial)
 The files used to make the video tutorial, including the script, .pdf and .pptx slides, and editable version of the used diagrams. Please see YouTube [to watch the video tutorial](https://www.youtube.com/watch?v=V3xTa2sw0bk).  
 
 ---

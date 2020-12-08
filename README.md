@@ -1,6 +1,5 @@
 # Replication Package
 ## Investigating Programming Language Impact on Industrial End-User Programmer Productivity 
----
 Our package is divided these main folders:
 ### code
 The R scripts we used to analyze the raw survey data. 

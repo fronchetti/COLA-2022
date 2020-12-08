@@ -1,6 +1,6 @@
 # Replication Package
 
-This is a replication package for the paper entitled as "FizzBuzz Failures: On Replacing Obsolete, Industrial End-User Programming Languages", published at the X (DOI Y).
+This is a replication package for the paper entitled as "Investigating Programming Language Impact on Industrial End-User Programmer Productivity", submitted to... (DOI Y).
 
 Our package is divided in two main folders:
 * data: Inside the data folder you will find three folders containing the files used before, during and after the execution of our study:

@@ -1,6 +1,6 @@
 # Replication Package
 
-This is a replication package for the paper entitled as "Investigating Programming Language Impact on Industrial End-User Programmer Productivity", submitted to... (DOI Y).
+This is a replication package for the paper **Investigating Programming Language Impact on Industrial End-User Programmer Productivity**, submitted to... (DOI Y).
 
 Our package is divided these main folders:
 

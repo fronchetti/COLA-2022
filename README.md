@@ -1,5 +1,5 @@
 # Replication Package
-## Investigating Programming Language Impact on Industrial End-User Programmer Productivity 
+## Investigating Programming Language Impact on Industrial End-User Programmer Productivity
 ### [code](https://github.com/vcuse/industrial/tree/master/code)
 The R scripts we used to analyze the raw survey data. 
 ### [data](https://github.com/vcuse/industrial/tree/master/data)

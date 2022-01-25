@@ -1,5 +1,5 @@
 # Replication Package
-## Investigating Programming Language Impact on Industrial End-User Programmer Productivity
+## Language impact on productivity for industrial end users: A case study from Programmable Logic Controllers
 ### [code](https://github.com/vcuse/industrial/tree/master/code)
 The R scripts we used to analyze the raw survey data. 
 ### [data](https://github.com/vcuse/industrial/tree/master/data)
